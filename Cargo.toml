@@ -9,3 +9,17 @@ members = [
 
 resolver = "2"
 
+[workspace.package]
+license = "LGPL-3.0"
+publish = false
+
+[workspace.dependencies]
+tracing = "=0.1"
+
+async-trait = "=0.1"
+thiserror = "=2"
+error-stack = "=0.5"
+
+[workspace.dependencies.nitinol]
+git = "https://github.com/HalsekiRaika/nitinol"
+rev = "1095f0cc10c3765af3ab95f58f926d989e6c8cf6"

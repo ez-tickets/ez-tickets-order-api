@@ -2,5 +2,21 @@
 name = "server"
 version = "0.1.0"
 edition = "2021"
+publish = { workspace = true }
+license = { workspace = true }
 
 [dependencies]
+tokio = { version = "^1", features = ["rt-multi-thread", "macros", "signal"] }
+axum = { version = "^0.8", features = ["json", "query", "ws", "tracing"] }
+
+tracing = { workspace = true }
+tracing-subscriber = { version = "^0.3", features = ["env-filter"] }
+tracing-appender = "^0.2"
+
+thiserror = { workspace = true }
+error-stack = { workspace = true }
+
+kernel = { path = "../kernel" }
+driver = { path = "../driver" }
+app-cmd = { path = "../app-cmd" }
+app-query = { path = "../app-query" }

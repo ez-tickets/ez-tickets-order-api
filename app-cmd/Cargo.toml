@@ -2,5 +2,7 @@
 name = "app-cmd"
 version = "0.1.0"
 edition = "2021"
+publish = { workspace = true }
+license = { workspace = true }
 
 [dependencies]
