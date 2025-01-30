@@ -1,0 +1,11 @@
+[workspace]
+members = [
+  "app-cmd",
+  "app-query",
+  "driver",
+  "kernel",
+  "server",
+]
+
+resolver = "2"
+
