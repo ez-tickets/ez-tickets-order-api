@@ -1,0 +1,6 @@
+[submodule "backyard"]
+	path = .ui.backyard
+	url = https://github.com/ez-tickets/ez-tickets-backyard
+[submodule "frontend"]
+	path = .ui.orderapp
+	url = https://github.com/ez-tickets/ez-tickets
