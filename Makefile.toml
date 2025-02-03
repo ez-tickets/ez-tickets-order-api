@@ -1,0 +1,8 @@
+[tasks.build-app-ui]
+description = "Build the main applocation ui"
+workspace = false
+cwd = "./.ui.orderapp"
+script_runner = "@shell"
+script = '''
+pnpm build
+'''
