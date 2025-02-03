@@ -6,3 +6,15 @@ publish = { workspace = true }
 license = { workspace = true }
 
 [dependencies]
+async-trait = { workspace = true }
+thiserror = { workspace = true }
+error-stack = { workspace = true }
+
+kernel = { path = "../kernel" }
+
+[dependencies.nitinol]
+workspace = true
+features = [
+  "process",
+  "projection"
+]
