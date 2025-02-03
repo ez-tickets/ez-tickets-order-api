@@ -11,16 +11,16 @@ pub fn init() -> WorkerGuard {
     tracing_subscriber::registry()
         .with(
             tracing_subscriber::fmt::layer()
-                .with_filter(EnvFilter::new(std::env::var("RUST_LOG").unwrap_or_else(
-                    |_| "trace".into(),
-                )))
+                .with_filter(EnvFilter::new(
+                    std::env::var("RUST_LOG").unwrap_or_else(|_| "trace".into()),
+                ))
                 .with_filter(LevelFilter::TRACE),
         )
         .with(
             tracing_subscriber::fmt::layer()
                 .with_writer(non_blocking_appender)
                 .with_ansi(false)
-                .with_filter(EnvFilter::new("trace"))
+                .with_filter(EnvFilter::new("trace")),
         )
         .init();
     guard

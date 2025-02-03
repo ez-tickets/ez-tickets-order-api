@@ -1,13 +1,23 @@
 use axum::Router;
 use error_stack::{Report, ResultExt};
-use tokio::net::TcpListener as TokioTcpListener;
 use server::errors::UnrecoverableError;
+use tokio::net::TcpListener as TokioTcpListener;
+use tower_http::services::ServeDir;
 
 #[tokio::main]
 async fn main() -> Result<(), Report<UnrecoverableError>> {
     let _guard = server::logging::init();
 
-    let router = Router::new();
+    // Todo: Add login logic.
+    let backyard = Router::new()
+        .nest_service("/backyard", ServeDir::new("../.ui.backyard/dist"));
+    
+    let client = Router::new()
+        .nest_service("/app", ServeDir::new("../.ui.orderapp/dist"));
+    
+    let router = Router::new()
+        .merge(client)
+        .merge(backyard);
 
     let tcpl = TokioTcpListener::bind("0.0.0.0:3651")
         .await
